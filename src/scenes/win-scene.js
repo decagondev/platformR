@@ -117,13 +117,14 @@ export class WinScene {
     if (this.#input.justPressed('jump')) {
       const selected = this.#nav.confirm();
       if (selected === 'Restart Level') {
-        // Find the level data again
         const level = this.#levels.find((l) => l.name === this.#levelName);
         if (level) {
           this.#sceneManager.switchTo('game', { level });
+          return;
         }
       } else if (selected === 'Return to Title') {
         this.#sceneManager.switchTo('title');
+        return;
       }
     }
 

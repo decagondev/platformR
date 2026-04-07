@@ -148,8 +148,10 @@ export class GameScene {
           this.#sceneManager.switchTo('game', {
             level: { name: this.#tileMap.name, tiles: this.#getTiles() },
           });
+          return;
         } else if (action === 'Quit to Title') {
           this.#sceneManager.switchTo('title');
+          return;
         }
       }
       return;
@@ -233,6 +235,7 @@ export class GameScene {
     if (this.#levelComplete.check(this.#player)) {
       if (this.#audio) this.#audio.play('levelComplete');
       this.#sceneManager.switchTo('win', { levelName: this.#tileMap.name });
+      return;
     }
 
     // Update particles

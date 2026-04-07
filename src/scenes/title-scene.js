@@ -136,6 +136,7 @@ export class TitleScene {
       if (this.#mode === 'main') {
         if (selected === 'Start Game') {
           this.#sceneManager.switchTo('game', { level: this.#levels[0] });
+          return;
         } else if (selected === 'Level Select') {
           this.#mode = 'levelSelect';
           this.#levelNav.reset();
@@ -146,6 +147,7 @@ export class TitleScene {
         this.#sceneManager.switchTo('game', {
           level: this.#levels[levelIndex],
         });
+        return;
       }
     }
 
