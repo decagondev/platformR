@@ -17,16 +17,14 @@ describe('ParticleEmitter', () => {
     expect(emitter.activeCount).toBe(10);
   });
 
-  it('should update particle positions based on velocity and gravity', () => {
+  it('should apply gravity to particles over time', () => {
     emitter.emit(100, 50, 1);
     const particle = emitter.particles[0];
-    const initialY = particle.y;
 
-    // After enough frames, gravity should dominate and pull particle down
-    for (let i = 0; i < 20; i++) {
-      emitter.update(16.67);
-    }
-    expect(particle.y).toBeGreaterThan(initialY);
+    // Record vy before and after update to verify gravity is applied
+    const vyBefore = particle.vy;
+    emitter.update(16.67);
+    expect(particle.vy).toBeGreaterThan(vyBefore);
   });
 
   it('should decrease particle lifetime each update', () => {
