@@ -1,24 +1,15 @@
-import { Application } from 'pixi.js';
+import { Engine } from './core/engine.js';
 import { GAME_WIDTH, GAME_HEIGHT } from './core/constants.js';
 
 async function init() {
-  const app = new Application();
+  const engine = new Engine();
+  await engine.init();
 
-  await app.init({
-    width: GAME_WIDTH,
-    height: GAME_HEIGHT,
-    backgroundColor: 0x0a0a1a,
-    resolution: 1,
-    autoDensity: false,
-    antialias: false,
-    roundPixels: true,
-  });
+  document.body.appendChild(engine.app.canvas);
+  engine.app.canvas.style.imageRendering = 'pixelated';
 
-  document.body.appendChild(app.canvas);
-  app.canvas.style.imageRendering = 'pixelated';
-
-  scaleCanvas(app);
-  window.addEventListener('resize', () => scaleCanvas(app));
+  scaleCanvas(engine.app);
+  window.addEventListener('resize', () => scaleCanvas(engine.app));
 }
 
 function scaleCanvas(app) {
