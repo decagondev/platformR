@@ -1,6 +1,8 @@
 export const Actions = {
   MOVE_LEFT: 'moveLeft',
   MOVE_RIGHT: 'moveRight',
+  MOVE_UP: 'moveUp',
+  MOVE_DOWN: 'moveDown',
   JUMP: 'jump',
   PAUSE: 'pause',
 };
@@ -10,9 +12,12 @@ const KEY_MAP = {
   a: Actions.MOVE_LEFT,
   ArrowRight: Actions.MOVE_RIGHT,
   d: Actions.MOVE_RIGHT,
+  ArrowUp: Actions.MOVE_UP,
+  w: Actions.MOVE_UP,
+  ArrowDown: Actions.MOVE_DOWN,
+  s: Actions.MOVE_DOWN,
   ' ': Actions.JUMP,
-  ArrowUp: Actions.JUMP,
-  w: Actions.JUMP,
+  Enter: Actions.JUMP,
   Escape: Actions.PAUSE,
 };
 
