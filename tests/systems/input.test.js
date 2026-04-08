@@ -42,18 +42,33 @@ describe('InputSystem', () => {
     expect(input.isDown(Actions.MOVE_RIGHT)).toBe(true);
   });
 
+  it('should map ArrowUp to moveUp action', () => {
+    pressKey('ArrowUp');
+    expect(input.isDown(Actions.MOVE_UP)).toBe(true);
+  });
+
+  it('should map "w" key to moveUp action', () => {
+    pressKey('w');
+    expect(input.isDown(Actions.MOVE_UP)).toBe(true);
+  });
+
+  it('should map ArrowDown to moveDown action', () => {
+    pressKey('ArrowDown');
+    expect(input.isDown(Actions.MOVE_DOWN)).toBe(true);
+  });
+
+  it('should map "s" key to moveDown action', () => {
+    pressKey('s');
+    expect(input.isDown(Actions.MOVE_DOWN)).toBe(true);
+  });
+
   it('should map Space to jump action', () => {
     pressKey(' ');
     expect(input.isDown(Actions.JUMP)).toBe(true);
   });
 
-  it('should map ArrowUp to jump action', () => {
-    pressKey('ArrowUp');
-    expect(input.isDown(Actions.JUMP)).toBe(true);
-  });
-
-  it('should map "w" key to jump action', () => {
-    pressKey('w');
+  it('should map Enter to jump action', () => {
+    pressKey('Enter');
     expect(input.isDown(Actions.JUMP)).toBe(true);
   });
 

@@ -15,10 +15,8 @@ function createParticle() {
 
 export class ParticleEmitter {
   particles = [];
-  #poolSize;
 
   constructor(poolSize = 50) {
-    this.#poolSize = poolSize;
     for (let i = 0; i < poolSize; i++) {
       this.particles.push(createParticle());
     }
